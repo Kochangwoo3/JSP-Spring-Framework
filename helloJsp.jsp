@@ -11,6 +11,7 @@
 	// 
 	String str1 = "JSP";
 	String str2 = "안녕하세요...";
+	
 %>    
 <!DOCTYPE html>
 <html>
@@ -22,9 +23,10 @@
 	<h2>처음 만들어보는 <%= str1 %></h2> <!-- 2. 표현식 -->
 	<p>
 		<%
-			// 3. 스크립틀릿
-			out.println(str2 + str1 + "입니다. 열공합시다^^*" );
 		
+			// 3. 스크립틀릿
+			out.println(str2 + str1 + "입니다. 열공 합시다^^*" );
+	
 		%>
 	</p>
 

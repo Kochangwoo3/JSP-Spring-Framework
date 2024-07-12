@@ -43,10 +43,7 @@ public class CalcServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.append("<html><body><h2>계산기 서블릿</h2><hr />")
 		.append("계산 결과: " + result + "</body></html>");
-		
-
-				
-		
+	
 		
 	}
 
