@@ -44,6 +44,9 @@ public class NewsController extends HttpServlet {
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("###### 필터링 거치고 실행됨");
+		
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		

@@ -83,5 +83,45 @@ public class StudentDAO {
 	}
 
 
+    public void deleteStudent(int id) throws SQLException {
+        open();
+        String sql = "DELETE FROM student WHERE id = ?";
 
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+    }
+
+    public Student getStudent(int id) {
+        open();
+        Student student = null;
+        String sql = "SELECT * FROM student WHERE id = ?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                student = new Student();
+                student.setId(rs.getInt("id"));
+                student.setUsername(rs.getString("username"));
+                student.setUniv(rs.getString("univ"));
+                student.setBirth(rs.getDate("birth"));
+                student.setEmail(rs.getString("email"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+
+        return student;
+    }
 }
